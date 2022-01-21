@@ -3,16 +3,9 @@ import React from 'react'
 import {SWeather} from './components/atoms/SWeather'
 import './default.css'
 
-  // const a = axios('').then(res=>returnData(res.data.weather[0].icon)).catch(err => console.error(err))
-
-  // function returnData(data){
-  //   return data
-  // }
-
 async function makeGetRequest(city, key) {
-  //api.openweathermap.org/data/2.5/weather?q={city name}&units=metric&appid=8ca056149efda548bbca48d125af6a3e
-  //http://openweathermap.org/img/wn/10d@2x.png
-  let res = await axios.get('https://api.openweathermap.org/data/2.5/weather?q='+city+'&units=metric&appid=8ca056149efda548bbca48d125af6a3e');
+  // Create an api key at https://api.openweathermap.org
+  let res = await axios.get('https://api.openweathermap.org/data/2.5/weather?q='+city+'&units=metric&appid=');
 
   document.getElementsByTagName('img')[key].src = 'http://openweathermap.org/img/wn/'+res.data.weather[0].icon+'@2x.png'
   document.getElementsByClassName('city')[key].innerHTML = city
